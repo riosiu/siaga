@@ -5,8 +5,6 @@ const getToken = async (payload, expiry) => {
     alg: "HS256",
   });
 
-  console.log(signJWT);
-
   if (expiry) {
     signJWT.setExpirationTime(expiry);
   }

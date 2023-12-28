@@ -38,12 +38,14 @@ class DataTableService {
     }
 
     // Filter Date columns
-    if (this.query.filter_date_columns && this.query.filter_start_date && this.query.filter_end_date) {
+    if (
+      this.query.filter_date_columns &&
+      this.query.filter_start_date &&
+      this.query.filter_end_date
+    ) {
       const startDate = new Date(this.query.filter_start_date);
       const endDate = new Date(this.query.filter_end_date);
       endDate.setDate(endDate.getDate() + 1);
-
-      console.log(startDate, endDate);
 
       queryOptions.where = {
         AND: this.query.filter_date_columns

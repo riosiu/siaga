@@ -9,11 +9,20 @@ datasource db {
 
 model User {
     id        String   @id @default(uuid())
+    devices   Device[]
     username  String?  @unique
     email     String   @unique
     fullname  String?
     password  String
-    image    String?
+    image     String?
     created_at DateTime @default(now())
     updated_at DateTime @updatedAt
+}
+
+model Device {
+    id       String  @id @default(uuid())
+    user     User    @relation(fields: [user_id], references: [id])
+    user_id  String
+    ssid     String
+    name     String
 }

@@ -15,6 +15,8 @@ services:
             - "3000:3000"
         volumes:
             - ./:/var/www
+            # Anonymous volumes for node_modules
+            - /var/www/node_modules
             #- ./storage/firebase-admin-sdk.json:/var/www/storage/firebase-admin-sdk.json
         networks:
             - database-network

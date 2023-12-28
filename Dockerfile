@@ -18,4 +18,4 @@ EXPOSE 3000
 
 # Command to run your application
 ENV HOST=0.0.0.0
-CMD ["npx", , "run", "dev", "--host", "0.0.0.0", "--port", "3000"]
+CMD ["npm", , "run", "npm-dev", "--host", "0.0.0.0", "--port", "3000"]
