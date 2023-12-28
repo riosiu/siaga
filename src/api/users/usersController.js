@@ -6,8 +6,10 @@ const prisma = new PrismaClient();
 
 const getUsers = async (req, res, next) => {
   try {
+    console.log(req);
+    const totalData = await prisma.user.count();
     const user = await UserServices.index(req.query);
-    const responseServices = req ? new ResponseServices(user, prisma.user, req, next) : new ResponseServices(user);
+    const responseServices = req ? new ResponseServices(user, totalData, req, next) : new ResponseServices(user);
     const response = responseServices.successResponse('success', user);
     res.status(response.code).json(response);
   } catch (error) {

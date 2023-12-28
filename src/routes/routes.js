@@ -3,6 +3,7 @@ const middleware = require("../middleware/verify.js");
 const { createUser, loginUser } = require("../controller/user.js");
 const authController = require("../api/auths/authController.js");
 const usersController = require("../api/users/usersController.js");
+const devicesController = require("../api/devices/deviceController.js");
 const storageController = require("../api/storages/storageController.js");
 
 const router = express.Router();
@@ -30,6 +31,12 @@ router.get("/users/:id", middleware, usersController.getUser);
 router.post("/users", middleware, usersController.createUser);
 router.put("/users/:id", middleware, usersController.updateUser);
 router.delete("/users/:id", middleware, usersController.deleteUser);
+
+router.get("/devices", middleware, devicesController.getDevices);
+router.get("/devices/:id", middleware, devicesController.getDevice);
+router.post("/devices", middleware, devicesController.createDevice);
+router.put("/devices/:id", middleware, devicesController.updateDevice);
+router.delete("/devices/:id", middleware, devicesController.deleteDevice);
 
 router.post("/uploads", storageController.uploadFile);
 router.get("/uploads/:filename", storageController.getFile);
