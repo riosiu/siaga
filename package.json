@@ -5,6 +5,7 @@
   "scripts": {
     "bun-dev": "bun run --watch src/index.js",
     "npm-dev": "nodemon ./src/index.js",
+    "npm-prod": "node ./src/index.js",
     "bun-db": "bunx prisma migrate reset --force && bunx prisma migrate dev",
     "npm-db": "npx prisma migrate reset --force && npx prisma migrate dev"
   },
