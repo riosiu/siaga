@@ -26,7 +26,6 @@ app.get("/", async (req, res) => {
     res.send(message);
     client.release();
   } catch (err) {
-    console.error(err);
     res.send("Error: " + err);
   }
 });
